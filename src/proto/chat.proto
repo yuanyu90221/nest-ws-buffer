@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package chat;
+enum CHAT_EVENT_TYPE {
+  EMIT_MESSAGE = 0;
+  RECEIVE = 1;
+}
+enum StatusCode {
+  SUCCESS = 0;
+  FAIL = 1;
+  NOT_FOUND = 2;
+}
+message SendEmitPayload {
+  string request_id = 1;
+  string message = 2;
+  CHAT_EVENT_TYPE event_type = 3; 
+}
+
+
+message ReceivePayload {
+  string request_id = 1;
+  string message = 2;
+  CHAT_EVENT_TYPE event_type = 3;
+  // StatusCode status = 4;
+}
